@@ -4,6 +4,77 @@ let interesDiario = 1.000135537
 
 let interesArray = [interesAnual, interesMensual, interesDiario]
 
+
+document.html.write(interesAnual);
+
+
+
+function inversionIni() {
+
+
+    let inversionInicial = document.getElementById("inicial");
+    let resultado = document.getElementById("resultado");
+    let monto = parseInt(inversionInicial.value);
+    let calculo = monto * interesAnual;
+    let mensajeFinal = "con una inversion de " + monto + " en 12 meses tendras: $" + calculo;
+
+    let nuevoLi = document.createElement("H2");
+    nuevoLi.innerHTML = mensajeFinal;
+
+
+    resultado.appendChild(nuevoLi);
+
+}
+
+
+
+
+/*
+function inversionIni() {
+
+
+    let inversionInicial = document.getElementById("inicial");
+    let resultado = document.getElementById("resultado");
+    let mensaje = inversionInicial.value + " hola mundo";
+
+    let nuevoLi = document.createElement("H2");
+    nuevoLi.innerHTML = mensaje;
+
+
+    resultado.appendChild(nuevoLi);
+
+}
+
+*/
+
+
+
+
+/*
+function listaCompras() {
+    let valor = document.getElementById("elemento");
+    let lista = document.getElementById("lista");
+
+    let nuevoLi = document.createElement("li");
+    nuevoLi.innerHTML = valor.value;
+    lista.appendChild(nuevoLi);
+
+
+}
+
+function borrarElemento() {
+    let lista = document.getElementById("lista");
+    lista.removeChild(lista.lastChild)
+
+}
+*/
+
+
+
+
+
+/*
+
 class interes {
     constructor(nombre, dinero, moneda, periodo, cantidadPeriodos) {
         this.nombre = nombre;
@@ -41,3 +112,5 @@ let nuevoInversor = new interes(nombreInversor, cantidadInvertir, "pesos", "mese
 
 //llamo a la funcion
 nuevoInversor.calcular();
+
+*/
