@@ -4,25 +4,28 @@ let interesDiario = 1.000135537
 
 let interesArray = [interesAnual, interesMensual, interesDiario]
 
+let Enter = 13
 
-document.html.write(interesAnual);
 
+let boton = document.getElementById("boton");
+boton.addEventListener("click", inversionIni);
+window.addEventListener("keypress", function(e) {
+    console.log(e.key);
+    if (e.key == Enter) {
+        inversionIni
+    }
+})
 
 
 function inversionIni() {
-
-
     let inversionInicial = document.getElementById("inicial");
-    let resultado = document.getElementById("resultado");
+    console.log(inversionInicial.value);
     let monto = parseInt(inversionInicial.value);
     let calculo = monto * interesAnual;
     let mensajeFinal = "con una inversion de " + monto + " en 12 meses tendras: $" + calculo;
 
-    let nuevoLi = document.createElement("H2");
-    nuevoLi.innerHTML = mensajeFinal;
-
-
-    resultado.appendChild(nuevoLi);
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = ` <p> ${mensajeFinal}`;
 
 }
 
