@@ -4,17 +4,11 @@ let interesDiario = 1.000135537
 
 let interesArray = [interesAnual, interesMensual, interesDiario]
 
-let Enter = 13
 
 
 let boton = document.getElementById("boton");
 boton.addEventListener("click", inversionIni);
-window.addEventListener("keypress", function(e) {
-    console.log(e.key);
-    if (e.key == Enter) {
-        inversionIni
-    }
-})
+
 
 
 function inversionIni() {
@@ -26,6 +20,57 @@ function inversionIni() {
 
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = ` <p> ${mensajeFinal}`;
+
+}
+
+
+class Usuario {
+    constructor(nombre, pass) {
+        this.nombre = nombre;
+        this.pass = pass;
+
+    }
+}
+// usuarioRegistrado no anda si no se carga previamente
+// let usuarioRegistrado = JSON.parse(localStorage.getItem("1"));
+let usuarioRegistrado = [];
+let botonReg = document.getElementById("botonReg");
+let botonLog = document.getElementById("botonLog");
+
+
+
+botonReg.addEventListener("click", registrar);
+//botonLog.addEventListener("click", logear);
+
+
+function registrar() {
+    let usuario = document.getElementById("usuario").value;
+    let pass = document.getElementById("pass").value;
+    let nuevoUsuario = new Usuario(usuario, pass);
+    usuarioRegistrado.push(nuevoUsuario);
+    usuarioJSON = JSON.stringify(usuarioRegistrado);
+    localStorage.setItem("1", usuarioJSON);
+
+
+}
+
+
+function logear() {
+    let usuario = document.getElementById("usuario").value;
+    let pass = document.getElementById("pass").value;
+    let array = localStorage.getItem("usuarioRegistrado");
+    let arrayParse = JSON.parse(array);
+    console.log(array);
+    console.log(arrayParse);
+    console.log(usuario);
+    console.log(pass);
+    for (let i = 0; i < localStorage.length; i++) {
+        let clave = localStorage.key(i);
+        let arreglo = localStorage.getItem(clave);
+        console.log(arreglo);
+    }
+
+
 
 }
 
@@ -114,6 +159,4 @@ let cantidadMeses = parseInt(prompt("Ingrese la cantidad de meses que durara su 
 let nuevoInversor = new interes(nombreInversor, cantidadInvertir, "pesos", "meses", cantidadMeses);
 
 //llamo a la funcion
-nuevoInversor.calcular();
-
-*/
+nuevoInversor.calcular(); */
